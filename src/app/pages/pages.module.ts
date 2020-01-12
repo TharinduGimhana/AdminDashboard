@@ -8,6 +8,8 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import {ManageProfileModule } from './manage-profiles/manage-profile.module';
+import {MapsModule } from './maps/maps.module';
+
 
 
 
@@ -19,7 +21,8 @@ import {ManageProfileModule } from './manage-profiles/manage-profile.module';
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
-    ManageProfileModule
+    ManageProfileModule,
+    MapsModule
     
   ],
   declarations: [

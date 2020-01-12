@@ -5,7 +5,6 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import { AddProfileComponent } from './manage-profiles/add-profile/add-profile.component';
 
 
 
@@ -80,10 +79,15 @@ const routes: Routes = [{
       loadChildren: () => import('./manage-profiles/manage-profile.module')
         .then(m => m.ManageProfileModule),
     },
+    // {
+    //   path: 'AddProfile',
+    //   loadChildren: () => import('./manage-profiles/add-profile/add-profile.component')
+    //     .then(m => m.AddProfileComponent),
+    // },
     {
-      path: 'AddProfile',
-      loadChildren: () => import('./manage-profiles/add-profile/add-profile.component')
-        .then(m => m.AddProfileComponent),
+      path: 'DropOffMap',
+      loadChildren: () => import('./Drop-off-locations/drop-off-locations.module')
+        .then(m => m.ManageProfileModule),
     },
     {
       path: '',
@@ -93,12 +97,8 @@ const routes: Routes = [{
     {
       path: '**',
       component: NotFoundComponent,
-    },
-    {
-      path: 'add-profile',
-      component: AddProfileComponent,
-    },
- 
+    }
+    
   ],
 }];
 
