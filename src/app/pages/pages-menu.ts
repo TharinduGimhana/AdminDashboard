@@ -244,4 +244,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+  {
+    title: 'ManageProfile',
+    icon: 'shuffle-2-outline',
+    children: [
+      {
+        title: 'Add Profile',
+        link: '/pages/manage-profiles/add-profile',
+      },
+      {
+        title: 'Tree Grid',
+        link: '/pages/tables/tree-grid',
+      },
+    ],
+  },
+ 
 ];

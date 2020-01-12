@@ -5,6 +5,9 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { AddProfileComponent } from './manage-profiles/add-profile/add-profile.component';
+
+
 
 const routes: Routes = [{
   path: '',
@@ -12,6 +15,10 @@ const routes: Routes = [{
   children: [
     {
       path: 'dashboard',
+      component: ECommerceComponent,
+    },
+    {
+      path: 'login',
       component: ECommerceComponent,
     },
     {
@@ -69,6 +76,16 @@ const routes: Routes = [{
         .then(m => m.MiscellaneousModule),
     },
     {
+      path: 'manage-profiles',
+      loadChildren: () => import('./manage-profiles/manage-profile.module')
+        .then(m => m.ManageProfileModule),
+    },
+    {
+      path: 'AddProfile',
+      loadChildren: () => import('./manage-profiles/add-profile/add-profile.component')
+        .then(m => m.AddProfileComponent),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
@@ -77,6 +94,11 @@ const routes: Routes = [{
       path: '**',
       component: NotFoundComponent,
     },
+    {
+      path: 'add-profile',
+      component: AddProfileComponent,
+    },
+ 
   ],
 }];
 
