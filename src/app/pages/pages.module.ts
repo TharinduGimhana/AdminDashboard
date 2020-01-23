@@ -9,6 +9,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import {ManageProfileModule } from './manage-profiles/manage-profile.module';
 import {MapsModule } from './maps/maps.module';
+import { AuthModule } from "./auth/auth.module";
+import { TimeTableModule } from "./time-table/table.module";
+import { ComplainsModule } from "./complains/complains.module";
+
 
 
 
@@ -22,7 +26,10 @@ import {MapsModule } from './maps/maps.module';
     ECommerceModule,
     MiscellaneousModule,
     ManageProfileModule,
-    MapsModule
+    MapsModule,
+    AuthModule,
+    TimeTableModule,
+    ComplainsModule
     
   ],
   declarations: [

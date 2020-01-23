@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ManageProfileComponent } from './manage-profile.component';
-import { AddProfileComponent } from './add-profile/add-profile.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ClientComponent } from './client/client.component';
+import { OfficersComponent } from './officers/officers.component';
 
 const routes: Routes = [
   {
@@ -11,12 +11,12 @@ const routes: Routes = [
     component: ManageProfileComponent,
     children: [
       {
-        path: 'add-profile',
-        component: AddProfileComponent,
+        path: 'officers',
+        component: OfficersComponent,
       },
       {
-        path: 'user-profile',
-        component: UserProfileComponent,
+        path: 'client',
+        component: ClientComponent,
       },
     ],
   },

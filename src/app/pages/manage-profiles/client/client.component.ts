@@ -2,11 +2,11 @@ import { NbMenuService } from '@nebular/theme';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-add-profile',
-  styleUrls: ['./add-profile.component.scss'],
-  templateUrl: './add-profile.component.html',
+  selector: 'ngx-client',
+  styleUrls: ['./client.component.scss'],
+  templateUrl: './client.component.html',
 })
-export class AddProfileComponent {
+export class ClientComponent {
 
   constructor(private menuService: NbMenuService) {
   }

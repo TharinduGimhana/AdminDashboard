@@ -255,14 +255,52 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'people-outline',
     children: [
       {
-        title: 'Add Profile',
-        link: '/pages/manage-profiles/add-profile',
+        title: 'Client',
+        link: '/pages/manage-profiles/client',
       },
       {
-        title: 'User Profile',
-        link: '/pages/manage-profiles/user-profile',
+        title: 'Officers',
+        link: '/pages/manage-profiles/officers',
       },
     ],
+  },
+  {
+    title: 'Auth',
+    icon: 'shield-outline',
+    children: [
+      {
+        title: 'Login',
+        link: '/pages/Auth/login',
+      },
+      
+    ],
+  },
+  {
+    title: 'Collecting Details',
+    icon: 'car-outline',
+        children: [
+          {
+            title: 'Time Table',
+            link: '/pages/time-table/time-table',
+          },
+          {
+            title: 'Route',
+            link: '/pages/time-table/route',
+          },
+          {
+            title: 'Vehicle Details',
+            link: '/pages/time-table/vehicle',
+          },
+          
+        ],
+
+  },
+  {
+    title: 'Complains',
+    icon: 'alert-circle-outline',
+  
+        link: '/pages/complains/complain',
+
   },
  
 ];

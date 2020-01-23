@@ -2,11 +2,11 @@ import { NbMenuService } from '@nebular/theme';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-user-profile',
-  styleUrls: ['./user-profile.component.scss'],
-  templateUrl: './user-profile.component.html',
+  selector: 'ngx-time-table',
+  styleUrls: ['./time-table.component.scss'],
+  templateUrl: './time-table.component.html',
 })
-export class UserProfileComponent {
+export class TimeTableComponent {
 
   constructor(private menuService: NbMenuService) {
   }

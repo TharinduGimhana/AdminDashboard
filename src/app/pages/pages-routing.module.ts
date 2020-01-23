@@ -5,7 +5,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-
+import {NbLoginComponent } from '../../../node_modules/@nebular/auth/components/login/login.component.d';
 
 
 const routes: Routes = [{
@@ -88,6 +88,21 @@ const routes: Routes = [{
       path: 'DropOffMap',
       loadChildren: () => import('./Drop-off-locations/drop-off-locations.module')
         .then(m => m.ManageProfileModule),
+    },
+    {
+      path: 'Auth',
+      loadChildren: () => import('./auth/auth.module')
+        .then(m => m.AuthModule),
+    },
+    {
+      path: 'time-table',
+      loadChildren: () => import('./time-table/table.module')
+        .then(m => m.TimeTableModule),
+    },
+    {
+      path: 'complains',
+      loadChildren: () => import('./complains/complains.module')
+        .then(m => m.ComplainsModule),
     },
     {
       path: '',
