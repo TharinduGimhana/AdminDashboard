@@ -34,3 +34,10 @@ const routes: Routes = [
 })
 export class TimeTableRoutingModule {
 }
+
+export const routedComponents = [
+  TableComponent,
+  TimeTableComponent,
+  RouteComponent,
+  VehicleDetailsComponent
+];
