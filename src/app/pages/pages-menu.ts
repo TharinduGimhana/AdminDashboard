@@ -145,15 +145,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Maps',
-    icon: 'map-outline',
+    title: 'Drop Of Locations',
+    icon: 'trash-2-outline',
     children: [
       {
         title: 'Google Maps',
         link: '/pages/maps/gmaps',
       },
       {
-        title: 'Leaflet Maps',
+        title: 'Drop Of Locations',
         link: '/pages/maps/leaflet',
       },
       {

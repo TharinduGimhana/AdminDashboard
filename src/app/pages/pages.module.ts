@@ -10,7 +10,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import {ManageProfileModule } from './manage-profiles/manage-profile.module';
 import {MapsModule } from './maps/maps.module';
 import { AuthModule } from "./auth/auth.module";
-import { TimeTableModule } from "./time-table/table.module";
+import { TableModule } from "./time-table/table.module";
 import { ComplainsModule } from "./complains/complains.module";
 
 
@@ -28,8 +28,8 @@ import { ComplainsModule } from "./complains/complains.module";
     ManageProfileModule,
     MapsModule,
     AuthModule,
-    TimeTableModule,
-    ComplainsModule
+    TableModule,
+    ComplainsModule,
     
   ],
   declarations: [

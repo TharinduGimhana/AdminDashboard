@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ngx-login',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss','./login.component.css'],
   templateUrl: './login.component.html',
 })
 export class LoginComponent {

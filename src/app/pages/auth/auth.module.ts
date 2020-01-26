@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { NbButtonModule, NbCardModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbAlertModule, NbIconModule, NbCheckboxModule, NbInputModule, NbActionsModule, NbUserModule, NbRadioModule, NbDatepickerModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
+ 
 
 
 @NgModule({
@@ -13,6 +14,16 @@ import { LoginComponent } from './login/login.component';
     NbCardModule,
     NbButtonModule,
     AuthRoutingModule,
+    NbAlertModule,
+    NbIconModule,
+    NbCheckboxModule,
+    NbInputModule,
+    NbActionsModule,
+    NbUserModule,
+    NbRadioModule,
+    NbDatepickerModule,
+   
+     
     
   ],
   declarations: [

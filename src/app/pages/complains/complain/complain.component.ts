@@ -8,10 +8,12 @@ interface TreeNode<T> {
 }
 
 interface FSEntry {
+
   customer_ID: Number;
   customer_name: string;
   Address: string;
   complain: string;
+
 }
 
 @Component({
@@ -20,8 +22,10 @@ interface FSEntry {
   templateUrl: './complain.component.html',
 })
 export class ComplainComponent {
+
   customColumn = 'customer_ID';
   defaultColumns = [ 'customer_name', 'Address', 'complain' ];
+
   allColumns = [ this.customColumn, ...this.defaultColumns ];
 
   dataSource: NbTreeGridDataSource<FSEntry>;
@@ -45,6 +49,7 @@ export class ComplainComponent {
 
   private data: TreeNode<FSEntry>[] = [
     {
+
       data: { customer_ID: 1, customer_name: 'Amal Perera', complain: 'complain about garabge recycling ', Address: 'Imbulpe' },
       
     },
@@ -55,6 +60,7 @@ export class ComplainComponent {
     {
       data: { customer_ID: 3,Address: 'Bandareawela', customer_name: 'Tharindu Gimhana', complain: 'Need a garabage truck once a week' },
       
+
     },
   ];
 

@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NbButtonModule, NbCardModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbTreeGridModule, NbIconModule, NbInputModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { TimeTableRoutingModule } from './table-routing.module'
-import { TableComponent } from './table.component';
-import { TimeTableComponent } from './table/time-table.component';
-import { RouteComponent } from './route/route.component';
-import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { TableRoutingModule, routedComponents } from './table-routing.module'
+import { FsIconComponent } from "./vehicle-details/vehicle-details.component";
 
 
 @NgModule({
@@ -14,16 +11,15 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
     ThemeModule,
     NbCardModule,
     NbButtonModule,
-    TimeTableRoutingModule,
-
-    
+    TableRoutingModule,
+    NbTreeGridModule,
+    NbIconModule,
+    NbInputModule,
   ],
   declarations: [
-    TableComponent,
-    TimeTableComponent,
-    RouteComponent,
-    VehicleDetailsComponent
- 
+    ...routedComponents,
+    FsIconComponent
   ],
 })
-export class TimeTableModule { }
+
+export class TableModule { }

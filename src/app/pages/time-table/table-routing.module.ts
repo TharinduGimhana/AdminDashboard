@@ -32,5 +32,13 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TimeTableRoutingModule {
+
+export class TableRoutingModule {
 }
+
+export const routedComponents = [
+  TableComponent,
+  TimeTableComponent,
+  RouteComponent,
+  VehicleDetailsComponent
+];
