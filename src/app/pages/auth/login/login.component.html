@@ -1,20 +1,49 @@
-<div class="row">
+<div class="row trow">
     <div class="col-md-12">
         <nb-card>
-            <nb-card-header>Nebula</nb-card-header>
+            
             <nb-card-body>
               <div class="row">
-                   
-                <div class="col-md-12">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
                    <h1 class="center">LOGIN</h1><p class="center"> Hello! Log in with your email</p> 
                 </div>
+                <div class="col-md-4"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1" class="label">Email address:</label>
+                      <input  fieldSize="large" autofocus type="email" nbInput fullWidth id="exampleInputEmail1" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <div class="d-flex">
+                      <label for="exampleInputPassword1" class="label mr-auto">Password:</label>
+                      <a class="forgot-password caption-2 ml-auto" routerLink="../request-password">Forgot Password?</a>
+                    </div>
+                      <input  fieldSize="large" type="password" nbInput fullWidth id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <nb-checkbox>Remember me</nb-checkbox>
+                    </div>
+                    <button style="margin-bottom: 20px;" type="submit" size="large" nbButton fullWidth status="primary">LOG IN</button>
+                    <!-- <button type="submit" nbButton status="danger">Submit</button> -->
+                  </form>
+                   
+                <!-- <div class="col-md-12">
+                   <h1 class="center">LOGIN</h1><p class="center"> Hello! Log in with your email</p>
+                </div> -->
                 
               </div>
+              </div>
             </nb-card-body>
-            <nb-card-footer>By Wikipedia</nb-card-footer>
+            
           </nb-card>
     </div>
   </div>
+  
   
 
 

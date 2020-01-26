@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { NbButtonModule, NbCardModule, NbAlertModule, NbIconModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbAlertModule, NbIconModule, NbCheckboxModule, NbInputModule, NbActionsModule, NbUserModule, NbRadioModule, NbDatepickerModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
+ 
 
 
 @NgModule({
@@ -15,7 +15,15 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbButtonModule,
     AuthRoutingModule,
     NbAlertModule,
-    NbIconModule
+    NbIconModule,
+    NbCheckboxModule,
+    NbInputModule,
+    NbActionsModule,
+    NbUserModule,
+    NbRadioModule,
+    NbDatepickerModule,
+   
+     
     
   ],
   declarations: [

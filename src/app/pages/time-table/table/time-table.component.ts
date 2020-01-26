@@ -9,12 +9,14 @@ interface TreeNode<T> {
 }
 
 interface FSEntry {
+
   date: string;
   start_at: string;
   end_at: string;
   vehicle_no: string;
   root_name: string;
   driver_name: string;
+
 }
 
 @Component({
@@ -24,8 +26,10 @@ interface FSEntry {
 })
 export class TimeTableComponent {
 
+
   customColumn = 'date';
   defaultColumns = [ 'start_at', 'end_at', 'vehicle_no', 'root_name', 'driver_name' ];
+
   allColumns = [ this.customColumn, ...this.defaultColumns ];
 
   dataSource: NbTreeGridDataSource<FSEntry>;
@@ -55,6 +59,7 @@ export class TimeTableComponent {
 
   private data: TreeNode<FSEntry>[] = [
     {
+
       data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root1', driver_name: 'kasun' }
     },
     {
@@ -63,6 +68,7 @@ export class TimeTableComponent {
     {
       data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root3', driver_name: 'nimal' }
     }
+
   ];
 
   getShowOn(index: number) {
