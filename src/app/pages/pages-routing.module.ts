@@ -97,7 +97,7 @@ const routes: Routes = [{
     {
       path: 'time-table',
       loadChildren: () => import('./time-table/table.module')
-        .then(m => m.TimeTableModule),
+        .then(m => m.TableModule),
     },
     {
       path: 'complains',
