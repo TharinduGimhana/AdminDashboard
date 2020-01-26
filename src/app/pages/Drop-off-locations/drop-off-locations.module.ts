@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { NbButtonModule, NbCardModule } from '@nebular/theme';
+import { AgmCoreModule } from '@agm/core';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { DropOffLocationsRoutingModule } from './drop-off-locations.routing.module';
 import { DropOffLocationsComponent } from './drop-off-locations.component';
 import { MapComponent } from './map/map.component';
+
 
 @NgModule({
   imports: [
@@ -12,6 +14,8 @@ import { MapComponent } from './map/map.component';
     NbCardModule,
     NbButtonModule,
     DropOffLocationsRoutingModule,
+
+
   ],
   declarations: [
     DropOffLocationsComponent,
