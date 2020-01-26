@@ -9,17 +9,14 @@ interface TreeNode<T> {
 }
 
 interface FSEntry {
-  // date: Date;
-  // start_at: Time;
-  // end_at: Time;
-  // vehicle_no: string;
-  // root_name: string;
-  // driver_name: string;
-  
-  name: string;
-  size: string;
-  kind: string;
-  items?: number;
+
+  date: string;
+  start_at: string;
+  end_at: string;
+  vehicle_no: string;
+  root_name: string;
+  driver_name: string;
+
 }
 
 @Component({
@@ -29,8 +26,10 @@ interface FSEntry {
 })
 export class TimeTableComponent {
 
-  customColumn = 'name';
-  defaultColumns = [ 'size', 'kind', 'items' ];
+
+  customColumn = 'date';
+  defaultColumns = [ 'start_at', 'end_at', 'vehicle_no', 'root_name', 'driver_name' ];
+
   allColumns = [ this.customColumn, ...this.defaultColumns ];
 
   dataSource: NbTreeGridDataSource<FSEntry>;
@@ -60,28 +59,16 @@ export class TimeTableComponent {
 
   private data: TreeNode<FSEntry>[] = [
     {
-      data: { name: 'Projects', size: '1.8 MB', items: 5, kind: 'dir' },
-      children: [
-        { data: { name: 'project-1.doc', kind: 'doc', size: '240 KB' } },
-        { data: { name: 'project-2.doc', kind: 'doc', size: '290 KB' } },
-        { data: { name: 'project-3', kind: 'txt', size: '466 KB' } },
-        { data: { name: 'project-4.docx', kind: 'docx', size: '900 KB' } },
-      ],
+
+      data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root1', driver_name: 'kasun' }
     },
     {
-      data: { name: 'Reports', kind: 'dir', size: '400 KB', items: 2 },
-      children: [
-        { data: { name: 'Report 1', kind: 'doc', size: '100 KB' } },
-        { data: { name: 'Report 2', kind: 'doc', size: '300 KB' } },
-      ],
+      data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root2', driver_name: 'kasun' }
     },
     {
-      data: { name: 'Other', kind: 'dir', size: '109 MB', items: 2 },
-      children: [
-        { data: { name: 'backup.bkp', kind: 'bkp', size: '107 MB' } },
-        { data: { name: 'secret-note.txt', kind: 'txt', size: '2 MB' } },
-      ],
-    },
+      data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root3', driver_name: 'nimal' }
+    }
+
   ];
 
   getShowOn(index: number) {
