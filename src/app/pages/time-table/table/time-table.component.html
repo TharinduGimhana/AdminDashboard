@@ -3,8 +3,18 @@
 <nb-card>
     <nb-card-body>
   
-      <label class="search-label" for="search">Search:</label>
-      <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
+      <div class="row">
+        
+        <div class="col-md-10 col-lg-10 col-xxxl-10">
+          <label class="search-label" for="search">Search:</label>
+          <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
+        </div>
+  
+        <div class="col-md-2 col-lg-2 col-xxxl-2">
+          <button nbButton [shape]="rectangle"> Add New </button>
+        </div>
+        
+      </div>
   
       <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
   
@@ -31,10 +41,6 @@
         </ng-container>
   
       </table>
-
-      <div class="add_button">
-        <button nbButton [shape]="rectangle"> Add </button>
-      </div>
   
     </nb-card-body>
   </nb-card>
