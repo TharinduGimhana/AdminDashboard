@@ -8,10 +8,10 @@ interface TreeNode<T> {
 }
 
 interface FSEntry {
-  name: string;
-  size: string;
-  kind: string;
-  items?: number;
+  customer_ID: Number;
+  customer_name: string;
+  Address: string;
+  complain: string;
 }
 
 @Component({
@@ -20,8 +20,8 @@ interface FSEntry {
   templateUrl: './complain.component.html',
 })
 export class ComplainComponent {
-  customColumn = 'name';
-  defaultColumns = [ 'size', 'kind', 'items' ];
+  customColumn = 'customer_ID';
+  defaultColumns = [ 'customer_name', 'Address', 'complain' ];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
 
   dataSource: NbTreeGridDataSource<FSEntry>;
@@ -45,27 +45,16 @@ export class ComplainComponent {
 
   private data: TreeNode<FSEntry>[] = [
     {
-      data: { name: 'Projects', size: '1.8 MB', items: 5, kind: 'dir' },
-      children: [
-        { data: { name: 'project-1.doc', kind: 'doc', size: '240 KB' } },
-        { data: { name: 'project-2.doc', kind: 'doc', size: '290 KB' } },
-        { data: { name: 'project-3', kind: 'txt', size: '466 KB' } },
-        { data: { name: 'project-4.docx', kind: 'docx', size: '900 KB' } },
-      ],
+      data: { customer_ID: 1, customer_name: 'Amal Perera', complain: 'complain about garabge recycling ', Address: 'Imbulpe' },
+      
     },
     {
-      data: { name: 'Reports', kind: 'dir', size: '400 KB', items: 2 },
-      children: [
-        { data: { name: 'Report 1', kind: 'doc', size: '100 KB' } },
-        { data: { name: 'Report 2', kind: 'doc', size: '300 KB' } },
-      ],
+      data: { customer_ID: 2, Address: 'Balangoda', customer_name: 'Nishantha Sunil', complain: 'complain is canceled' },
+     
     },
     {
-      data: { name: 'Other', kind: 'dir', size: '109 MB', items: 2 },
-      children: [
-        { data: { name: 'backup.bkp', kind: 'bkp', size: '107 MB' } },
-        { data: { name: 'secret-note.txt', kind: 'txt', size: '2 MB' } },
-      ],
+      data: { customer_ID: 3,Address: 'Bandareawela', customer_name: 'Tharindu Gimhana', complain: 'Need a garabage truck once a week' },
+      
     },
   ];
 
