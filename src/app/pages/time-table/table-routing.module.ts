@@ -5,6 +5,7 @@ import { TableComponent } from './table.component'
 import { TimeTableComponent } from './table/time-table.component';
 import { RouteComponent } from './route/route.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component'
+ 
 
 
 const routes: Routes = [
@@ -19,11 +20,13 @@ const routes: Routes = [
       {
         path: 'route',
         component: RouteComponent,
+         
       },
       {
         path: 'vehicle',
         component: VehicleDetailsComponent,
       },
+
     ],
   },
 ];
