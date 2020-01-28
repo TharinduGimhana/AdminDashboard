@@ -1,5 +1,6 @@
-import { NbMenuService, NbTreeGridDataSource, NbSortDirection, NbTreeGridDataSourceBuilder, NbSortRequest } from '@nebular/theme';
-import { Component, Input } from '@angular/core';
+import { NbMenuService, NbTreeGridDataSource, NbSortDirection, NbTreeGridDataSourceBuilder, NbSortRequest, NbWindowService } from '@nebular/theme';
+import { Component, Input, ViewChild, TemplateRef } from '@angular/core';
+import { WindowFormComponent } from '../../modal-overlays/window/window-form/window-form.component';
 
 interface TreeNode<T> {
   data: T;
@@ -28,15 +29,31 @@ export class RouteComponent {
 
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
-  topcrd=false;
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+
+  @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;                                  //import
+  @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;        //import
+
+
+  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>,private windowService: NbWindowService) {    //import
     this.dataSource = this.dataSourceBuilder.create(this.data);
   }
-
-  row_add(){                                                  //attached to tablr add
-    this.topcrd=true;
+//imported
+  openWindow(contentTemplate) {
+    this.windowService.open(
+      contentTemplate,
+      {
+        title: 'Window content from template',
+        context: {
+          text: 'some text to pass into template',
+        },
+      },
+    );
   }
 
+  openWindowForm() {
+    this.windowService.open(WindowFormComponent, { title: `Window` });
+  }
+ //
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
     this.sortDirection = sortRequest.direction;

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { NbButtonModule, NbCardModule, NbTreeGridModule, NbIconModule, NbInputModule, NbDialogModule, NbWindowModule } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { TableRoutingModule, routedComponents } from './table-routing.module'
+ 
 import { FsIconComponent } from "./vehicle-details/vehicle-details.component";
 import { RouteComponent } from './route/route.component';
+import { TablesRoutingModule } from '../tables/tables-routing.module';
+import { routedComponents } from '../maps/maps-routing.module';
    
  
 
@@ -14,7 +16,7 @@ import { RouteComponent } from './route/route.component';
     ThemeModule,
     NbCardModule,
     NbButtonModule,
-    TableRoutingModule,
+    TablesRoutingModule,
     NbTreeGridModule,
     NbIconModule,
     NbInputModule,

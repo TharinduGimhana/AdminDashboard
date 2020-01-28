@@ -1,3 +1,6 @@
+@import '~bootstrap/scss/mixins/breakpoints';               //import 
+@import '~@nebular/theme/styles/global/breakpoints';        //import 
+
 
 @import '../../../@theme/styles/themes';
 
@@ -6,6 +9,10 @@
     background: transparent;
     border: none;
     padding: 0;
+  }
+
+  button + button {
+    margin-left: 2rem;                                //import
   }
 
   .search-label {
@@ -53,4 +60,33 @@
       width: 23%;
     }
   }
+        //imported
+  @include media-breakpoint-down(xxl) {
+    nb-card-body {
+      display: flex;
+    }
+
+    button {
+      flex: 1;
+      padding: 0.8rem;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    nb-card-body {
+      display: block;
+    }
+
+    button {
+      + button {
+        margin-left: 0;
+      }
+
+      width: 100%;
+      display: block;
+      margin-bottom: 2rem;
+      padding: 0.75rem;
+    }
+  }
+
 }
