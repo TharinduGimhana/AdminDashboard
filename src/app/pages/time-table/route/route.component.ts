@@ -1,5 +1,6 @@
-import { NbMenuService, NbTreeGridDataSource, NbSortDirection, NbTreeGridDataSourceBuilder, NbSortRequest } from '@nebular/theme';
-import { Component, Input } from '@angular/core';
+import { NbMenuService, NbTreeGridDataSource, NbSortDirection, NbTreeGridDataSourceBuilder, NbSortRequest, NbWindowService } from '@nebular/theme';
+import { Component, Input, ViewChild, TemplateRef } from '@angular/core';
+import { RouteFormComponent } from './route-form/route-form.component';
 
 interface TreeNode<T> {
   data: T;
@@ -19,6 +20,10 @@ interface FSEntry {
   templateUrl: './route.component.html',
 })
 export class RouteComponent {
+
+  @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
+  @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
+
   customColumn = 'rootname';
   defaultColumns = [ 'rootcode', 'toframe' ];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
@@ -29,12 +34,13 @@ export class RouteComponent {
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
   topcrd=false;
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+
+  constructor(private windowService: NbWindowService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
     this.dataSource = this.dataSourceBuilder.create(this.data);
   }
 
-  row_add(){                                                  //attached to tablr add
-    this.topcrd=true;
+  openWindowForm() {
+    this.windowService.open(RouteFormComponent, { title: `Add New` });
   }
 
   updateSort(sortRequest: NbSortRequest): void {

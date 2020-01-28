@@ -20,6 +20,8 @@ import { TableRoutingModule, routedComponents } from './table-routing.module'
 import { FsIconComponent } from "./vehicle-details/vehicle-details.component";
 import { RouteComponent } from './route/route.component';
 import { TimetableFormComponent } from './table/timetable-form/timetable-form.component';
+import { RouteFormComponent } from './route/route-form/route-form.component';
+import { VehicleFormComponent } from './vehicle-details/vehicle-form/vehicle-form.component';
 
 
 
@@ -46,9 +48,13 @@ import { TimetableFormComponent } from './table/timetable-form/timetable-form.co
     FsIconComponent,
     RouteComponent,
     TimetableFormComponent,
+    RouteFormComponent,
+    VehicleFormComponent,
   ],
   entryComponents: [
     TimetableFormComponent,
+    RouteFormComponent,
+    VehicleFormComponent
   ],
 })
 
