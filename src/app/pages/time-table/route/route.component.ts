@@ -28,14 +28,12 @@ export class RouteComponent {
 
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
-  topcrd=false;
+   
   constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
     this.dataSource = this.dataSourceBuilder.create(this.data);
   }
 
-  row_add(){                                                  //attached to tablr add
-    this.topcrd=true;
-  }
+  
 
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
