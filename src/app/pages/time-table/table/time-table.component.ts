@@ -10,12 +10,12 @@ interface TreeNode<T> {
 
 interface FSEntry {
 
-  date: string;
-  start_at: string;
-  end_at: string;
-  vehicle_no: string;
-  root_name: string;
-  driver_name: string;
+  Date: string;
+  startAt: string;
+  endAt: string;
+  vehicleNo: string;
+  rootName: string;
+  driverName: string;
 
 }
 
@@ -29,10 +29,11 @@ export class TimeTableComponent {
   @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
   @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
 
-  customColumn = 'date';
-  defaultColumns = [ 'start_at', 'end_at', 'vehicle_no', 'root_name', 'driver_name' ];
+  customColumn = 'Date';
+  defaultColumns = [ 'startAt', 'endAt', 'vehicleNo', 'rootName', 'driverName' ];
 
   allColumns = [ this.customColumn, ...this.defaultColumns ];
+  tabletopic=['Start At','End At', 'Vehicle Number', 'Root Name', 'Driver Name'];
 
   dataSource: NbTreeGridDataSource<FSEntry>;
 
@@ -44,7 +45,9 @@ export class TimeTableComponent {
   }
 
   openWindowForm() {
-    this.windowService.open(TimetableFormComponent, { title: `Add new` });
+
+    this.windowService.open(TimetableFormComponent, { title: `Add New` });
+
   }
 
   goToHome() {
@@ -66,13 +69,13 @@ export class TimeTableComponent {
   private data: TreeNode<FSEntry>[] = [
     {
 
-      data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root1', driver_name: 'kasun' }
+      data: { Date: 'Jan 6, 2020', startAt: '08:00', endAt: '10:30', vehicleNo: '001', rootName: 'root1', driverName: 'kasun' }
     },
     {
-      data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root2', driver_name: 'kasun' }
+      data: { Date: 'Jan 6, 2020', startAt: '08:00', endAt: '10:30', vehicleNo: '001', rootName: 'root2', driverName: 'kasun' }
     },
     {
-      data: { date: 'Jan 6, 2020', start_at: '08:00', end_at: '10:30', vehicle_no: '001', root_name: 'root3', driver_name: 'nimal' }
+      data: { Date: 'Jan 6, 2020', startAt: '08:00', endAt: '10:30', vehicleNo: '001', rootName: 'root3', driverName: 'nimal' }
     }
 
   ];
