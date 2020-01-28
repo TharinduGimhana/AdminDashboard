@@ -5,6 +5,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { TableRoutingModule, routedComponents } from './table-routing.module'
 import { FsIconComponent } from "./vehicle-details/vehicle-details.component";
 import { RouteComponent } from './route/route.component';
+import { WindowFormComponent } from './route/window-form/window-form.component';
    
  
 
@@ -24,10 +25,13 @@ import { RouteComponent } from './route/route.component';
     ...routedComponents,
     FsIconComponent,
     RouteComponent,
+    WindowFormComponent
      
      
      
   ],
+  
+
 })
 
 export class TableModule { }
