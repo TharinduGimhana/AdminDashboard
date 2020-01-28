@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import {NbLoginComponent } from '../../../node_modules/@nebular/auth/components/login/login.component.d';
+import { LoginComponent } from './auth/login/login.component';
+import { from } from 'rxjs';
 
 
 const routes: Routes = [{
@@ -18,8 +20,12 @@ const routes: Routes = [{
     },
     {
       path: 'login',
-      component: ECommerceComponent,
+      component: LoginComponent,
     },
+    // {
+    //   path: 'main',
+    //   component: LoginComponent,
+    // },
     {
       path: 'iot-dashboard',
       component: DashboardComponent,
@@ -104,15 +110,15 @@ const routes: Routes = [{
       loadChildren: () => import('./complains/complains.module')
         .then(m => m.ComplainsModule),
     },
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
-    },
-    {
-      path: '**',
-      component: NotFoundComponent,
-    }
+    // {
+    //   path: '',
+    //   redirectTo: 'dashboard',
+    //   pathMatch: 'full',
+    // },
+    // {
+    //   path: '**',
+    //   component: NotFoundComponent,
+    // }
     
   ],
 }];
