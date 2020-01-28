@@ -36,7 +36,7 @@
                       [nbTreeGridColumnDef]="column"
                       [showOn]="getShowOn(index)">
           <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
-            {{column}}
+            {{tabletopic[index]}}
           </th>
           <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
         </ng-container>
