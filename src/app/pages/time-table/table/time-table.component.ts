@@ -45,8 +45,11 @@ export class TimeTableComponent {
   }
 
   openWindowForm() {
+
     this.windowService.open(TimetableFormComponent, { title: `Add New` });
-  }
+
+    this.windowService.open(TimetableFormComponent, { title: `Add new` });
+
 
   goToHome() {
     this.menuService.navigateHome();
