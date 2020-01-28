@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder, NbMenuService } from '@nebular/theme';
-import { Time } from '@angular/common';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
+import { NbWindowService, NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder, NbMenuService } from '@nebular/theme';
+import { TimetableFormComponent } from './timetable-form/timetable-form.component';
 
 interface TreeNode<T> {
   data: T;
@@ -26,6 +26,8 @@ interface FSEntry {
 })
 export class TimeTableComponent {
 
+  @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
+  @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
 
   customColumn = 'date';
   defaultColumns = [ 'start_at', 'end_at', 'vehicle_no', 'root_name', 'driver_name' ];
@@ -37,8 +39,12 @@ export class TimeTableComponent {
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
-  constructor(private menuService: NbMenuService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+  constructor(private windowService: NbWindowService, private menuService: NbMenuService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
     this.dataSource = this.dataSourceBuilder.create(this.data);
+  }
+
+  openWindowForm() {
+    this.windowService.open(TimetableFormComponent, { title: `Window` });
   }
 
   goToHome() {
