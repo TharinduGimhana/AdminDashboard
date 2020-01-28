@@ -1,0 +1,17 @@
+@import '../../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  ::ng-deep .form {
+    display: flex;
+    flex-direction: column;
+
+    .text-label {
+      margin-top: 1.5rem;
+    }
+
+    #submit {
+      color: wheat;
+      background-color: rgb(77, 77, 231);
+    }
+  }
+}

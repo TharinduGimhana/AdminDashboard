@@ -1,5 +1,6 @@
-import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
-import { Component, Input } from '@angular/core';
+import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder, NbWindowService } from '@nebular/theme';
+import { Component, Input, ViewChild, TemplateRef } from '@angular/core';
+import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
 
 interface TreeNode<T> {
   data: T;
@@ -8,6 +9,7 @@ interface TreeNode<T> {
 }
 
 interface FSEntry {
+  Id: number;
   vehicleNumber: string;
   model: string;
   registrationDate: string;
@@ -21,16 +23,24 @@ interface FSEntry {
 })
 export class VehicleDetailsComponent {
 
-  customColumn = 'Vehicle Number';
-  defaultColumns = ['Model', 'Registration Date', 'Type'];
+  @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
+  @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
+
+  customColumn = 'Id';
+  defaultColumns = ['vehicleNumber', 'model', 'registrationDate', 'type'];
   allColumns = [this.customColumn, ...this.defaultColumns];
+  tabletopic=['Vehicle Number', 'Model', 'Registration Date', 'Type'];
 
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;
   sortDirection: NbSortDirection=NbSortDirection.NONE;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+  constructor(private windowService: NbWindowService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
     this.dataSource = this.dataSourceBuilder.create(this.data);
+  }
+
+  openWindowForm() {
+    this.windowService.open(VehicleFormComponent, { title: `Add New` });
   }
 
   updateSort(sortRequest: NbSortRequest): void {
@@ -46,29 +56,18 @@ export class VehicleDetailsComponent {
   }
 
   private data: TreeNode<FSEntry>[] = [
-    // {
-    //   data: { vehicleNumber: 'Projects', model: '1.8 MB', registrationDate: '5', type: 'dir' },
-    //   children: [
-    //     { data: { vehicleNumber: 'project-1.doc', model: 'doc', registrationDate: '240 KB' } },
-    //     { data: { vehicleNumber: 'project-2.doc', model: 'doc', registrationDate: '290 KB' } },
-    //     { data: { vehicleNumber: 'project-3', model: 'txt', registrationDate: '466 KB' } },
-    //     { data: { vehicleNumber: 'project-4.docx', model: 'docx', registrationDate: '900 KB' } },
-    //   ],
-    // },
-    // {
-    //   data: { vehicleNumber: 'Reports', model: 'dir', registrationDate: '400 KB', type: '2' },
-    //   children: [
-    //     { data: { vehicleNumber: 'Report 1', model: 'doc', registrationDate: '100 KB' } },
-    //     { data: { vehicleNumber: 'Report 2', model: 'doc', registrationDate: '300 KB' } },
-    //   ],
-    // },
-    // {
-    //   data: { vehicleNumber: 'Other', model: 'dir', registrationDate: '109 MB', type: '2' },
-    //   children: [
-    //     { data: { vehicleNumber: 'backup.bkp', model: 'bkp', registrationDate: '107 MB' } },
-    //     { data: { vehicleNumber: 'secret-note.txt', model: 'txt', registrationDate: '2 MB' } },
-    //   ],
-    // },
+    {
+      data: { Id: 1, vehicleNumber: 'Projects', model: '1.8 MB', registrationDate: '5', type: 'dir' },
+      
+    },
+    {
+      data: { Id: 2, vehicleNumber: 'Reports', model: 'dir', registrationDate: '400 KB', type: '2' },
+      
+    },
+    {
+      data: { Id: 3, vehicleNumber: 'Other', model: 'dir', registrationDate: '109 MB', type: '2' },
+      
+    }
   ];
   getShowOn(index: number) {
     const minWithForMultipleColumns = 400;
