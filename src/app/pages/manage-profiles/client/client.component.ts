@@ -1,5 +1,5 @@
-import { NbMenuService, NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
-import { Component,  Input } from '@angular/core';
+import { NbWindowService,NbMenuService, NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { Component,  Input, TemplateRef,ViewChild } from '@angular/core';
 
 interface TreeNode<T> {
   data: T;
