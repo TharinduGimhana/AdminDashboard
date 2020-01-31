@@ -28,3 +28,8 @@ const routes: Routes = [
 })
 export class ManageProfileRoutingModule {
 }
+export const routedComponents = [
+  OfficersComponent,
+  ClientComponent,
+  ManageProfileComponent
+];

@@ -1,1 +1,87 @@
-<p>Client profile</p>
+<nb-card>
+    <nb-card-body>
+  
+      <label class="search-label" for="search">Search:</label>
+        <div class="d-flex">
+      <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input mr-auto">
+      <button style="height: 30px;" nbButton size="small" class="ml-auto" (click)="openWindowForm()">ADD</button>
+        </div>
+      <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+  
+        <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+  
+        <ng-container [nbTreeGridColumnDef]="customColumn">
+          <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+         ID
+          </th>
+          <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="rowclick(lncmodal,row)" >
+            <!-- <ngx-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></ngx-fs-icon> -->
+            {{row.data[customColumn]}}
+          </td>
+        </ng-container>
+  
+        <ng-container *ngFor="let column of defaultColumns; let index = index"
+                      [nbTreeGridColumnDef]="column"
+                      [showOn]="getShowOn(index)">
+          <th  nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+            {{defaultcolumnName[index]}}
+          </th>
+          <td (click)="rowclick(lncmodal,row)" nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        </ng-container>
+  
+      </table>
+  
+    </nb-card-body>
+  </nb-card>
+
+   
+<!-- Button trigger modal -->
+<button style="display:none;" #lncmodal type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card" >
+      <div class="cotainer-fliud">
+        <div class="row">
+          <div class="col-md-4">
+             <img class="card-img-top" src="../../../../assets/images/male.png" alt="Card image cap" style="width: 200px;">
+
+            </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul *ngIf="this.row" class="list-group list-group-flush">
+              <li class="list-group-item">{{this.row.name}}</li>
+              <li class="list-group-item">{{this.row.size}}</li>
+              <li class="list-group-item">{{this.row.items}}</li>
+              <li class="list-group-item">{{this.row.kind}}</li>
+            </ul>
+       
+          
+        </div>
+          </div>
+      
+      
+         
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+ 
